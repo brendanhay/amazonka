@@ -11,11 +11,10 @@ pvp="$1"
 semantic="$2"
 
 specs=(
-  amazonka/amazonka.cabal
-  core/amazonka-core.cabal
-  examples/amazonka-examples.cabal
   gen/amazonka-gen.cabal
   test/amazonka-test.cabal
+  examples/amazonka-examples.cabal
+  amazonka/amazonka.cabal
   amazonka-s3-encryption/amazonka-s3-encryption.cabal
 )
 

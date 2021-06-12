@@ -32,7 +32,6 @@ in project // {
     packages = ps:
       with ps; [
         amazonka
-        amazonka-core
         amazonka-test
         amazonka-gen
       ];

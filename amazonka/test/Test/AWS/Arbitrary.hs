@@ -16,7 +16,6 @@ import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
 import Data.Time (UTCTime (..), Day (..))
 import Network.AWS.Core
-import Network.AWS.Endpoint
 import Network.AWS.Sign.V4
 import Network.HTTP.Types (StdMethod (..))
 import Test.QuickCheck.Gen as QC

@@ -1,9 +1,9 @@
-{-# LANGUAGE BangPatterns #-}
+{-# LANGUAGE BangPatterns       #-}
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE FlexibleContexts #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TupleSections #-}
+{-# LANGUAGE FlexibleContexts   #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE TupleSections      #-}
 
 -- |
 -- Module      : Network.AWS.Auth
@@ -64,29 +64,31 @@ module Network.AWS.Auth
   )
 where
 
-import Control.Concurrent
-import Control.Monad
-import Control.Monad.Catch
-import Control.Monad.IO.Class
-import Control.Monad.Trans.Maybe (MaybeT (..))
-import qualified Data.ByteString.Char8 as BS8
+import           Control.Concurrent
+import           Control.Monad
+import           Control.Monad.Catch
+import           Control.Monad.IO.Class
+import           Control.Monad.Trans.Maybe  (MaybeT (..))
+import qualified Data.ByteString.Char8      as BS8
 import qualified Data.ByteString.Lazy.Char8 as LBS8
-import Data.Char (isSpace)
-import Data.IORef
-import qualified Data.Ini as INI
-import qualified Data.Text as Text
-import qualified Data.Text.Encoding as Text
-import Data.Time (diffUTCTime, getCurrentTime)
-import Network.AWS.Data.JSON
-import Network.AWS.Data.Log
-import Network.AWS.EC2.Metadata
-import Network.AWS.Lens (Prism', catching, catching_, exception, prism, throwingM, (<&>), _IOException)
-import Network.AWS.Prelude
-import Network.HTTP.Conduit
-import qualified Network.HTTP.Conduit as HTTP
-import System.Directory (doesFileExist, getHomeDirectory)
-import System.Environment
-import System.Mem.Weak
+import           Data.Char                  (isSpace)
+import qualified Data.Ini                   as INI
+import           Data.IORef
+import qualified Data.Text                  as Text
+import qualified Data.Text.Encoding         as Text
+import           Data.Time                  (diffUTCTime, getCurrentTime)
+import           Network.AWS.Data.JSON
+import           Network.AWS.Data.Log
+import           Network.AWS.EC2.Metadata
+import           Network.AWS.Lens           (Prism', catching, catching_,
+                                             exception, prism, throwingM, (<&>),
+                                             _IOException)
+import           Network.AWS.Prelude
+import           Network.HTTP.Conduit
+import qualified Network.HTTP.Conduit       as HTTP
+import           System.Directory           (doesFileExist, getHomeDirectory)
+import           System.Environment
+import           System.Mem.Weak
 
 -- | Default access key environment variable.
 envAccessKey ::
@@ -142,6 +144,10 @@ credSessionToken ::
   -- | aws_session_token
   Text
 credSessionToken = "aws_session_token"
+
+-- | Credentials INI file region variable.
+credRegion :: Text -- ^ region
+credRegion = "region"
 
 -- | Credentials INI default profile section variable.
 credProfile ::
@@ -256,7 +262,7 @@ instance ToLog Credentials where
       "Discover"
     where
       m (Just x) = "(Just " <> build x <> ")"
-      m Nothing = "Nothing"
+      m Nothing  = "Nothing"
 
 instance Show Credentials where
   show = BS8.unpack . toBS . build
@@ -435,7 +441,7 @@ fromEnvKeys access secret session region' =
         return
         m
 
-    opt Nothing = return Nothing
+    opt Nothing  = return Nothing
     opt (Just k) = liftIO (lookupEnv (Text.unpack k))
 
 -- | Loads the default @credentials@ INI file using the default profile name.
@@ -472,7 +478,8 @@ fromFilePath n f =
         <*> (req credSecretKey ini <&> Sensitive . SecretKey)
         <*> (opt credSessionToken ini <&> fmap (Sensitive . SessionToken))
         <*> return Nothing
-    return (Auth env, Nothing)
+    mRegion <- getRegion ini
+    return (Auth env, mRegion)
   where
     req k i =
       case INI.lookupValue n k i of
@@ -483,8 +490,23 @@ fromFilePath n f =
 
     opt k i = return $
       case INI.lookupValue n k i of
-        Left _ -> Nothing
+        Left _  -> Nothing
         Right x -> Just (Text.encodeUtf8 x)
+
+    getRegion ini = case INI.lookupValue n credRegion ini >>= fromText of
+        Left _  -> getRegionFromConfigFile
+        Right x -> return $ Just x
+
+    -- get region value from ~/.aws/config
+    getRegionFromConfigFile = do
+      home <- liftIO getHomeDirectory
+      let configPath = home <> "/.aws/config"
+      p <- liftIO (doesFileExist configPath)
+      unless p $ throwM (MissingFileError f)
+      ini <- either (invalidErr Nothing) return =<< liftIO (INI.readIniFile configPath)
+      return $ case INI.lookupValue ("profile " <> n) credRegion ini >>= fromText of
+        Left _  -> Nothing
+        Right x -> Just x
 
     invalidErr Nothing e = throwM $ InvalidFileError (Text.pack e)
     invalidErr (Just k) e =
@@ -548,7 +570,7 @@ fromProfileName m name =
       try (identity m)
         >>= handleErr (fmap _region) invalidIdentityErr
 
-    handleErr _ _ (Left e) = throwM (RetrievalError e)
+    handleErr _ _ (Left e)  = throwM (RetrievalError e)
     handleErr f g (Right x) = either (throwM . g) return (f x)
 
     invalidIAMErr =
